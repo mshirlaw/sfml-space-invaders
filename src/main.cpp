@@ -17,24 +17,33 @@
 #include "WinScreen.h"
 #include "LoseScreen.h"
 #include "CollisionManager.h"
+#include "SoundManager.h"
 
 #define WIDTH 800
 #define HEIGHT 600
 #define NUMBER_OF_ALIENS 7
 using namespace std;
 
-const float shipSpeed = 500.f;
-const float alienSpeed = 500.f;
-const float bulletSpeed = 500.f;
-bool gameOver=false;
-bool winner = false;
-
 int main(int, char *argv[])
 {
+    const float shipSpeed = 800.f;
+    const int alienMaxSpeed = 1500;
+    const int alienMinSpeed = 500;
+    const float bulletSpeed = 500.f;
+    bool gameOver=false;
+    bool winner = false;
+    
+    //initialize random seed
+    srand (time(NULL));
+
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Space Invaders Clone");
     window.setVerticalSyncEnabled(true);
 
+    //start background music
+    SoundManager music;
+    music.playBackgroundMusic();
+    
     //create background
     sf::Sprite back;
     sf::Texture star;
@@ -60,7 +69,7 @@ int main(int, char *argv[])
     Enemy alienArray[NUMBER_OF_ALIENS];
     for(int i=0; i<NUMBER_OF_ALIENS; i++)
     {
-        Enemy alien(i,alienSpeed);
+        Enemy alien(i, alienMinSpeed + (rand()%alienMaxSpeed) );
         alien.setLocation(i*100+50, alien.getSprite().getGlobalBounds().height/2);
         alienArray[i] = alien;
     }
@@ -124,10 +133,11 @@ int main(int, char *argv[])
             
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space)
             {
-                if(!bullet.isAlive())
+                if(!bullet.isAlive() && !gameOver)
                 {
                     bullet.spawn(true);
                     bullet.setLocation(myShip.getSprite().getPosition().x+31,myShip.getSprite().getPosition().y-15);
+                    music.playLazer();
                 }
             }
             
@@ -137,12 +147,33 @@ int main(int, char *argv[])
             }
 
             // Close window : exit
-            if (event.type == sf::Event::MouseButtonPressed) {
-                if(gameOver)
-                    window.close();
+            if (event.type == sf::Event::MouseButtonPressed)
+            {
+                if (gameOver)
+                {
+                    // (re)start the game
+                    gameOver = false;
+                    winner=false;
+                    clock.restart();
+                    
+                    //reset aliens
+                    for(int i=0; i<NUMBER_OF_ALIENS; i++)
+                    {
+                        Enemy alien(i, alienMinSpeed + (rand()%alienMaxSpeed) );
+                        alien.setLocation(i*100+50, alien.getSprite().getGlobalBounds().height/2);
+                        alienArray[i] = alien;
+                    }
+                    
+                    //reset ship location
+                    myShip.setLocation(WIDTH/2,HEIGHT-myShip.getSprite().getGlobalBounds().height);
+                    myShip.respawn();
+                    
+                    //restart music
+                    music.playBackgroundMusic();
+                }
             }
             
-            // Espace pressed : exit
+            // Escape pressed : exit
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
                 window.close();
             }
@@ -152,7 +183,6 @@ int main(int, char *argv[])
         window.clear(sf::Color(0,0,0,255));
         window.draw(back);
         
-        
         //move aliens
         sf::Time t = alienClock.getElapsedTime();
         //cout<<t.asSeconds()<<endl;
@@ -160,7 +190,7 @@ int main(int, char *argv[])
         {
             for(size_t i=0; i<7; i++)
             {
-                alienArray[i].getSprite().move(0.f,10);
+                alienArray[i].getSprite().move(0.f,alienArray[i].getSpeed()*deltaTime);
             }
             alienClock.restart();
         }
@@ -168,7 +198,7 @@ int main(int, char *argv[])
         sf::Time bc = bulletClock.getElapsedTime();
         if(bc.asSeconds() > 1.0)
         {
-            if(bullet.isAlive())
+            if(bullet.isAlive() && !gameOver)
             {
                 //draw bullet
                 bullet.draw(window);
@@ -182,6 +212,8 @@ int main(int, char *argv[])
         {
             if(CollisionManager::collidesWith(myShip, alienArray[i]) && alienArray[i].isAlive())
             {
+                if(!gameOver)
+                    music.playExplosion();
                 myShip.kill();
                 winner=false;
                 gameOver=true;
@@ -191,8 +223,10 @@ int main(int, char *argv[])
         //test collisions between aliens and bottom of screen
         for(int i=0; i<NUMBER_OF_ALIENS;i++)
         {
-            if(alienArray[i].getSprite().getPosition().y>HEIGHT && alienArray[i].isAlive())
+            if(alienArray[i].getSprite().getPosition().y+alienArray[i].getSprite().getGlobalBounds().height>HEIGHT && alienArray[i].isAlive())
             {
+                if(!gameOver)
+                    music.playExplosion();
                 winner=false;
                 gameOver=true;
             }
@@ -203,6 +237,7 @@ int main(int, char *argv[])
         {
             if(CollisionManager::collidesWith(bullet, alienArray[i]) && alienArray[i].isAlive())
             {
+                music.playExplosion();
                 alienArray[i].kill();
                 bullet.kill();
             }
@@ -217,6 +252,8 @@ int main(int, char *argv[])
             
             if(deadAliens==NUMBER_OF_ALIENS)
             {
+                if(!gameOver)
+                    //music.playReward();
                 winner=true;
                 gameOver=true;
             }
@@ -249,6 +286,8 @@ int main(int, char *argv[])
         }
         else
         {
+            music.pauseBackgroundMusic();
+            
             if(winner)
                 win.draw(window);
             else
@@ -261,9 +300,4 @@ int main(int, char *argv[])
     }
     
     return EXIT_SUCCESS;
-}
-
-void testCollisions()
-{
-    
 }

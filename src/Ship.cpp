@@ -48,3 +48,8 @@ void Ship::draw(sf::RenderWindow &win)
     sprite.setTexture(texture);
     win.draw(sprite);
 }
+
+void Ship::respawn()
+{
+    alive=true;
+}

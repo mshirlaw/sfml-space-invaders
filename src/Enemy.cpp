@@ -9,11 +9,14 @@
 using namespace std;
 
 //constructor sets ID number, loads sprite
-Enemy::Enemy(const int id,float speed)
+Enemy::Enemy(const int id,float sp)
 {
     //set alive
     alive = true;
 
+    //set speed
+    speed = sp;
+    
     // Load an enemy texture
     if(!texture.loadFromFile(resourcePath() + "alien_100.png"))
         throw invalid_argument("Enemy not loaded!");
@@ -49,4 +52,9 @@ void Enemy::draw(sf::RenderWindow &win)
     sprite.setTexture(texture);
     //draw
     win.draw(sprite);
+}
+
+float Enemy::getSpeed() const
+{
+    return speed;
 }

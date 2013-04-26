@@ -21,11 +21,13 @@ public:
     void setLocation(float,float);
     void kill();
     bool isAlive();
+    float getSpeed() const;
     void draw(sf::RenderWindow &win);
 private:
     sf::Sprite sprite;
     sf::Texture texture;
     bool alive;
+    float speed;
 };
 
 

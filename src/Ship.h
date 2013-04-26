@@ -20,6 +20,7 @@ public:
     void setLocation(float, float);
     void kill();
     bool isAlive();
+    void respawn();
     void draw(sf::RenderWindow &win);
 private:
     sf::Sprite sprite;
