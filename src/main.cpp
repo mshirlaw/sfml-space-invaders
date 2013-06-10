@@ -26,8 +26,8 @@ using namespace std;
 
 int main(int, char *argv[])
 {
-    const float shipSpeed = 800.f;
-    const int alienMaxSpeed = 1500;
+    const float shipSpeed = 400.f;
+    const int alienMaxSpeed = 1200;
     const int alienMinSpeed = 500;
     const float bulletSpeed = 500.f;
     bool gameOver=false;
@@ -94,52 +94,6 @@ int main(int, char *argv[])
         sf::Event event;
         while (window.pollEvent(event))
         {
-            //check for movement of ship
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Right)
-            {
-                if (myShip.getSprite().getPosition().x + myShip.getSprite().getGlobalBounds().width < WIDTH)
-                {
-                    //cout << sprite.getPosition().x << endl;
-                    myShip.getSprite().move(shipSpeed * deltaTime, 0.f);
-                }
-            }
-            
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Left)
-            {
-                if(myShip.getSprite().getPosition().x > 0.f)
-                {
-                    //cout << sprite.getPosition().x << endl;
-                    myShip.getSprite().move(-shipSpeed * deltaTime, 0.f);
-                }
-            }
-            
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up)
-            {
-                if(myShip.getSprite().getPosition().y > 0.f)
-                {
-                    //cout << sprite.getPosition().x << endl;
-                    myShip.getSprite().move( 0.f,-shipSpeed * deltaTime);
-                }
-            }
-
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down)
-            {
-                if(myShip.getSprite().getPosition().y + myShip.getSprite().getGlobalBounds().height < HEIGHT)
-                {
-                    //cout << sprite.getPosition().x << endl;
-                    myShip.getSprite().move(0.f, shipSpeed * deltaTime);
-                }
-            }
-            
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space)
-            {
-                if(!bullet.isAlive() && !gameOver)
-                {
-                    bullet.spawn(true);
-                    bullet.setLocation(myShip.getSprite().getPosition().x+31,myShip.getSprite().getPosition().y-15);
-                    music.playLazer();
-                }
-            }
             
             // Close window : exit
             if (event.type == sf::Event::Closed) {
@@ -173,16 +127,65 @@ int main(int, char *argv[])
                 }
             }
             
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space)
+            {
+                if(!bullet.isAlive() && !gameOver)
+                {
+                    bullet.spawn(true);
+                    bullet.setLocation(myShip.getSprite().getPosition().x+31,myShip.getSprite().getPosition().y-15);
+                    music.playLazer();
+                }
+            }
+            
             // Escape pressed : exit
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
                 window.close();
             }
         }
         
+        
         // Clear screen
         window.clear(sf::Color(0,0,0,255));
         window.draw(back);
         
+        
+        //check for movement of ship
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Right)
+        {
+            if (myShip.getSprite().getPosition().x + myShip.getSprite().getGlobalBounds().width < WIDTH)
+            {
+                //cout << sprite.getPosition().x << endl;
+                myShip.getSprite().move(shipSpeed * deltaTime, 0.f);
+            }
+        }
+        
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Left)
+        {
+            if(myShip.getSprite().getPosition().x > 0.f)
+            {
+                //cout << sprite.getPosition().x << endl;
+                myShip.getSprite().move(-shipSpeed * deltaTime, 0.f);
+            }
+        }
+        
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up)
+        {
+            if(myShip.getSprite().getPosition().y > 0.f)
+            {
+                //cout << sprite.getPosition().x << endl;
+                myShip.getSprite().move( 0.f,-shipSpeed * deltaTime);
+            }
+        }
+        
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down)
+        {
+            if(myShip.getSprite().getPosition().y + myShip.getSprite().getGlobalBounds().height < HEIGHT)
+            {
+                //cout << sprite.getPosition().x << endl;
+                myShip.getSprite().move(0.f, shipSpeed * deltaTime);
+            }
+        }
+                        
         //move aliens
         sf::Time t = alienClock.getElapsedTime();
         //cout<<t.asSeconds()<<endl;
