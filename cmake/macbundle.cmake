@@ -1,10 +1,10 @@
-# icon
+# app icon
 set(MACOSX_BUNDLE_ICON_FILE "${CMAKE_PROJECT_NAME}.icns")
 set(application_icon "${CMAKE_SOURCE_DIR}/res/${MACOSX_BUNDLE_ICON_FILE}")
 set_source_files_properties(${application_icon}
                             PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
 
-# static files
+# resource files
 file(GLOB_RECURSE assets "${CMAKE_SOURCE_DIR}/res/*")
 foreach(FILE ${assets}) 
   get_filename_component(FILENAME ${FILE} NAME)
@@ -16,6 +16,7 @@ foreach(FILE ${assets})
   endif()
 endforeach()
 
+# create macos bundle
 add_executable(${CMAKE_PROJECT_NAME} MACOSX_BUNDLE
                ${GAME_SRC} "${CMAKE_SOURCE_DIR}/src/ResourcePath.mm" 
                ${application_icon} "${assets}") 
