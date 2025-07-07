@@ -19,12 +19,11 @@
 #include <stdexcept>
 #include <vector>
 
-#define WIDTH 800
-#define HEIGHT 600
-#define NUMBER_OF_ALIENS 7
-using namespace std;
+constexpr auto WIDTH = 800;
+constexpr auto HEIGHT = 600;
+constexpr auto NUMBER_OF_ALIENS = 7;
 
-int main(int, char *argv[])
+int main()
 {
     const float shipSpeed = 400.f;
     const int alienMaxSpeed = 1200;
