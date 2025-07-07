@@ -8,7 +8,7 @@ WinScreen::WinScreen()
 {
     // Load gameOver to display
     if (!texture.loadFromFile(resourcePath() + "you_win.png"))
-        throw invalid_argument("Game over screen not loaded!");
+        throw std::invalid_argument("Game over screen not loaded!");
 
     // create sprite and scale
     sprite.scale(sf::Vector2f(1, 1));

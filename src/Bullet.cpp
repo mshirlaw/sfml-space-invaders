@@ -5,7 +5,7 @@
 #include "Bullet.h"
 #include <iostream>
 #include <stdexcept>
-using namespace std;
+
 
 Bullet::Bullet(const int id, float speed)
 {
@@ -14,7 +14,7 @@ Bullet::Bullet(const int id, float speed)
 
     // load a sprite
     if (!texture.loadFromFile(resourcePath() + "bullet.png"))
-        throw invalid_argument("Bullet not loaded!");
+        throw std::invalid_argument("Bullet not loaded!");
 
     // scale
     sprite.scale(sf::Vector2f(0.3, 0.3));

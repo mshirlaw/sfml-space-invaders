@@ -6,7 +6,7 @@
 #include <iostream>
 #include <stdexcept>
 
-using namespace std;
+
 
 // constructor sets ID number, loads sprite
 Enemy::Enemy(const int id, float sp)
@@ -19,7 +19,7 @@ Enemy::Enemy(const int id, float sp)
 
     // Load an enemy texture
     if (!texture.loadFromFile(resourcePath() + "alien_100.png"))
-        throw invalid_argument("Enemy not loaded!");
+        throw std::invalid_argument("Enemy not loaded!");
 
     // scale sprite and set texture so we know size
     sprite.setTexture(texture);

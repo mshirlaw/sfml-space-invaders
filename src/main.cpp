@@ -49,7 +49,7 @@ int main()
 
     // Load background to display
     if (!star.loadFromFile(resourcePath() + "stars.png"))
-        throw invalid_argument("Background not loaded!");
+        throw std::invalid_argument("Background not loaded!");
     // create sprite and scale
     back.setTexture(star);
 

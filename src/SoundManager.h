@@ -14,7 +14,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <stdexcept>
-using namespace std;
+
 
 class SoundManager
 {

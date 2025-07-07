@@ -6,7 +6,7 @@
 #include <iostream>
 #include <stdexcept>
 
-using namespace std;
+
 
 // constructor sets ID number, loads sprite
 Ship::Ship(const int id, float speed)
@@ -15,7 +15,7 @@ Ship::Ship(const int id, float speed)
 
     // Load a Ship to display
     if (!texture.loadFromFile(resourcePath() + "medium_ship.png"))
-        throw invalid_argument("Ship not loaded!");
+        throw std::invalid_argument("Ship not loaded!");
 
     // create sprite and set texture so we know its size
     sprite.setTexture(texture);
