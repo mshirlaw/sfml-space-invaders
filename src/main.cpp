@@ -33,11 +33,13 @@ int main()
     bool winner = false;
 
     // initialize random seed
-    srand(time(NULL));
+    srand(time(nullptr));
 
     // Create the main window
-    sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Space Invaders Clone");
+    sf::RenderWindow window(sf::VideoMode{WIDTH, HEIGHT}, "Space Invaders Clone",
+                            sf::Style::Titlebar | sf::Style::Close);
     window.setVerticalSyncEnabled(true);
+    window.setFramerateLimit(60);
 
     // start background music
     SoundManager music;
