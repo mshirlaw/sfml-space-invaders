@@ -12,7 +12,6 @@
 #include <stdexcept>
 #include <string>
 
-
 class WinScreen
 {
   public:

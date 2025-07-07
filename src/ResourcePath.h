@@ -13,4 +13,4 @@ namespace game
  * \return The absolute file path
  */
 std::string getResourcePath(const std::string &relativePath);
-} 
+} // namespace game

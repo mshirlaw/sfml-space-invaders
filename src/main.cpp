@@ -50,7 +50,7 @@ int main()
     sf::Texture star;
 
     // Load background to display
-    if (!star.loadFromFile(game::getResourcePath() + "stars.png"))
+    if (!star.loadFromFile(game::getResourcePath("stars.png")))
         throw std::invalid_argument("Background not loaded!");
     // create sprite and scale
     back.setTexture(star);

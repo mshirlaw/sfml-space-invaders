@@ -6,14 +6,13 @@
 #include <iostream>
 #include <stdexcept>
 
-
 Bullet::Bullet(const int id, float speed)
 {
     // alive
     alive = false;
 
     // load a sprite
-    if (!texture.loadFromFile(game::getResourcePath() + "bullet.png"))
+    if (!texture.loadFromFile(game::getResourcePath("bullet.png")))
         throw std::invalid_argument("Bullet not loaded!");
 
     // scale

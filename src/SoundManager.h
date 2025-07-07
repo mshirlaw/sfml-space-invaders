@@ -15,7 +15,6 @@
 #include <iostream>
 #include <stdexcept>
 
-
 class SoundManager
 {
   public:

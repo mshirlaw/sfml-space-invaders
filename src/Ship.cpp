@@ -6,15 +6,13 @@
 #include <iostream>
 #include <stdexcept>
 
-
-
 // constructor sets ID number, loads sprite
 Ship::Ship(const int id, float speed)
 {
     alive = true;
 
     // Load a Ship to display
-    if (!texture.loadFromFile(game::getResourcePath() + "medium_ship.png"))
+    if (!texture.loadFromFile(game::getResourcePath("medium_ship.png")))
         throw std::invalid_argument("Ship not loaded!");
 
     // create sprite and set texture so we know its size

@@ -6,8 +6,6 @@
 #include <iostream>
 #include <stdexcept>
 
-
-
 // constructor sets ID number, loads sprite
 Enemy::Enemy(const int id, float sp)
 {
@@ -18,7 +16,7 @@ Enemy::Enemy(const int id, float sp)
     speed = sp;
 
     // Load an enemy texture
-    if (!texture.loadFromFile(game::getResourcePath() + "alien_100.png"))
+    if (!texture.loadFromFile(game::getResourcePath("alien_100.png")))
         throw std::invalid_argument("Enemy not loaded!");
 
     // scale sprite and set texture so we know size
