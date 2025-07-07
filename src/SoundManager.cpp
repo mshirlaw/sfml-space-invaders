@@ -11,19 +11,19 @@
 SoundManager::SoundManager()
 {
     // load lazer
-    if (!lazerBuffer.loadFromFile(resourcePath() + "space_gun.wav"))
+    if (!lazerBuffer.loadFromFile(game::getResourcePath() + "space_gun.wav"))
         throw std::invalid_argument("Lazer sound not loaded!");
 
     // load explosion
-    if (!explosionBuffer.loadFromFile(resourcePath() + "ship_explode.wav"))
+    if (!explosionBuffer.loadFromFile(game::getResourcePath() + "ship_explode.wav"))
         throw std::invalid_argument("Explosion sound not loaded!");
 
     // load explosion
-    if (!rewardBuffer.loadFromFile(resourcePath() + "reward.wav"))
+    if (!rewardBuffer.loadFromFile(game::getResourcePath() + "reward.wav"))
         throw std::invalid_argument("Reward sound not loaded!");
 
     // open music from file
-    if (!music.openFromFile(resourcePath() + "background.wav"))
+    if (!music.openFromFile(game::getResourcePath() + "background.wav"))
         throw std::invalid_argument("Explosion sound not loaded!");
 }
 

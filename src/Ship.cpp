@@ -14,7 +14,7 @@ Ship::Ship(const int id, float speed)
     alive = true;
 
     // Load a Ship to display
-    if (!texture.loadFromFile(resourcePath() + "medium_ship.png"))
+    if (!texture.loadFromFile(game::getResourcePath() + "medium_ship.png"))
         throw std::invalid_argument("Ship not loaded!");
 
     // create sprite and set texture so we know its size
