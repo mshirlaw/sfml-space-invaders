@@ -41,6 +41,13 @@ int main()
     window.setVerticalSyncEnabled(true);
     window.setFramerateLimit(60);
 
+    sf::Image appIcon;
+    if (appIcon.loadFromFile(game::getResourcePath("win-icon.ico")))
+    {
+        auto dims = appIcon.getSize();
+        window.setIcon(dims.x, dims.y, appIcon.getPixelsPtr());
+    }
+
     // start background music
     SoundManager music;
     music.playBackgroundMusic();
