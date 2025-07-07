@@ -5,22 +5,23 @@
 #ifndef SpriteMove_WinScreen_h
 #define SpriteMove_WinScreen_h
 
+#include "ResourcePath.hpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include "ResourcePath.hpp"
 #include <iostream>
-#include <string>
 #include <stdexcept>
+#include <string>
 using namespace std;
 
 class WinScreen
 {
-public:
+  public:
     WinScreen();
-    sf::Sprite & getSprite();
-    void setLocation(float,float);
+    sf::Sprite &getSprite();
+    void setLocation(float, float);
     void draw(sf::RenderWindow &win);
-private:
+
+  private:
     sf::Sprite sprite;
     sf::Texture texture;
 };

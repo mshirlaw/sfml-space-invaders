@@ -5,24 +5,25 @@
 #ifndef SpriteMove_Ship_h
 #define SpriteMove_Ship_h
 
+#include "ResourcePath.hpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include "ResourcePath.hpp"
 #include <iostream>
 #include <string>
 
 class Ship
 {
-public:
-    //constructor sets ID number, loads sprite
-    Ship(const int,float);
-    sf::Sprite & getSprite();
+  public:
+    // constructor sets ID number, loads sprite
+    Ship(const int, float);
+    sf::Sprite &getSprite();
     void setLocation(float, float);
     void kill();
     bool isAlive();
     void respawn();
     void draw(sf::RenderWindow &win);
-private:
+
+  private:
     sf::Sprite sprite;
     sf::Texture texture;
     bool alive;

@@ -9,23 +9,24 @@
 #ifndef __SpriteMove__SoundManager__
 #define __SpriteMove__SoundManager__
 
-#include <iostream>
+#include "ResourcePath.hpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include <stdexcept>
-#include "ResourcePath.hpp"
 using namespace std;
 
 class SoundManager
 {
-public:
+  public:
     SoundManager();
     void playBackgroundMusic();
     void pauseBackgroundMusic();
     void playLazer();
     void playExplosion();
     void playReward();
-private:
+
+  private:
     sf::SoundBuffer lazerBuffer;
     sf::SoundBuffer explosionBuffer;
     sf::SoundBuffer rewardBuffer;
