@@ -19,12 +19,12 @@ endif()
 # ==== UPDATE ME HERE ===========
 # Absolute path where you installed SFML (Required on Windows only)
 set(SFML_HOME "C:/SFML/SFML-2.6.1")
-set(SFML_DIR ${SFML_HOME}/lib/cmake/SFML) 
+set(SFML_DIR ${SFML_HOME}/lib/cmake/SFML)
 # ==========================
 
 # Collect all sources
 file(GLOB_RECURSE GAME_SRC "src/*.cpp" "src/*.h")
-find_package(SFML 2.5 REQUIRED COMPONENTS "graphics" "window" "system")
+find_package(SFML 2.5 REQUIRED COMPONENTS "graphics" "window" "audio" "system")
 
 
 if(WIN32)

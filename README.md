@@ -23,6 +23,7 @@ Arrow keys to move. Space to shoot. Requires **SFML 2.5.X** or higher.
 
 - XCode 14 or newer from AppStore (with MacOS SDK)
 - Please install SFML 2.5.x as **Frameworks**, not as "dylibs", as shown in [official SFML guide](https://www.sfml-dev.org/tutorials/2.6/start-osx.php).
+- IMPORTANT: ensure you install SFML libs for your specific CPU arch.
 - Download Apple Developer tools. After Xcode is installed, run this in your Terminal:
 
 ```bash

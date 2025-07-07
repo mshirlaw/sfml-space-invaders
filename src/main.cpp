@@ -19,9 +19,10 @@
 #include <stdexcept>
 #include <vector>
 
-constexpr auto WIDTH = 800;
-constexpr auto HEIGHT = 600;
-constexpr auto NUMBER_OF_ALIENS = 7;
+constexpr unsigned WIDTH = 800;
+constexpr unsigned HEIGHT = 600;
+constexpr unsigned NUMBER_OF_ALIENS = 7;
+constexpr auto ICON_PATH = "win-icon.ico";
 
 int main()
 {
@@ -41,8 +42,9 @@ int main()
     window.setVerticalSyncEnabled(true);
     window.setFramerateLimit(60);
 
+    // title bar icon (Windows only)
     sf::Image appIcon;
-    if (appIcon.loadFromFile(game::getResourcePath("win-icon.ico")))
+    if (appIcon.loadFromFile(game::getResourcePath(ICON_PATH)))
     {
         auto dims = appIcon.getSize();
         window.setIcon(dims.x, dims.y, appIcon.getPixelsPtr());
