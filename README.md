@@ -16,7 +16,7 @@ Arrow keys to move. Space to shoot. Requires **SFML 2.5.X** or higher.
 
 - MS Visual Studio 2022 or newer (NOT vscode), with "**Desktop C++ Development**" bundle.
 - Please download "Visual C++ 64bit" edition of SFML; ignore others.
-- Move your unzipped `SFML-2.6.x` folder to its own home, example: `C:/SFML/SFML-2.6.1`.
+- Move your unzipped `SFML-2.5.x` folder to its own home, example: `C:/SFML/SFML-2.5.1`.
 - Edit **line 21** in [CMakeLists.txt](CMakeLists.txt#L21), to set value `SFML_HOME` to folder path you moved SFML into (from previous step).
 
 ### For macOS (x64 & arm64)
@@ -39,13 +39,17 @@ Arrow keys to move. Space to shoot. Requires **SFML 2.5.X** or higher.
 ### For Linux Desktop
 
 - Latest display drivers
-- Use your OS package manager (`apt` or `yum`) to install SFML 2.6 or newer.
-- Alternatively, you may build SFML 2.6 from source, see [official SFML docs](https://www.sfml-dev.org/tutorials/2.6/start-linux.php).
+- Use your OS package manager (`apt` or `yum`) to install SFML 2.5 or newer.
+- Alternatively, you may build SFML 2.5 from source, see [official SFML docs](https://www.sfml-dev.org/tutorials/2.6/start-linux.php).
 - You are required to install latest **OpenSSL Dev** library. See example for Ubuntu / Debian below.
 
 ```bash
   sudo apt install libsfml-dev
 ```
+
+## Build Instructions
+
+Please see [BUILDING.md](BUILDING.md) for detailed instructions for each platform.
 
 ## Author
 
