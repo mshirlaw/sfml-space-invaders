@@ -7,27 +7,27 @@
 #include <stdexcept>
 using namespace std;
 
-Bullet::Bullet(const int id,float speed)
+Bullet::Bullet(const int id, float speed)
 {
-    //alive
+    // alive
     alive = false;
-    
-    //load a sprite
-    if(!texture.loadFromFile(resourcePath() + "bullet.png"))
+
+    // load a sprite
+    if (!texture.loadFromFile(resourcePath() + "bullet.png"))
         throw invalid_argument("Bullet not loaded!");
-    
-    //scale
-    sprite.scale(sf::Vector2f(0.3,0.3));
+
+    // scale
+    sprite.scale(sf::Vector2f(0.3, 0.3));
 }
 
-sf::Sprite & Bullet::getSprite()
+sf::Sprite &Bullet::getSprite()
 {
     return sprite;
 }
 
 void Bullet::setLocation(float xpos, float ypos)
 {
-    sprite.setPosition(xpos,ypos);
+    sprite.setPosition(xpos, ypos);
 }
 
 void Bullet::kill()
@@ -42,13 +42,12 @@ bool Bullet::isAlive()
 
 void Bullet::spawn(bool bul)
 {
-    alive=bul;
+    alive = bul;
 }
 
 void Bullet::draw(sf::RenderWindow &win)
 {
-    //set texture
+    // set texture
     sprite.setTexture(texture);
     win.draw(sprite);
 }
-
