@@ -41,7 +41,6 @@ Arrow keys to move. Space to shoot. Requires **SFML 2.5.X** or higher.
 - Latest display drivers
 - Use your OS package manager (`apt` or `yum`) to install SFML 2.5 or newer.
 - Alternatively, you may build SFML 2.5 from source, see [official SFML docs](https://www.sfml-dev.org/tutorials/2.6/start-linux.php).
-- You are required to install latest **OpenSSL Dev** library. See example for Ubuntu / Debian below.
 
 ```bash
   sudo apt install libsfml-dev
