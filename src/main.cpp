@@ -8,7 +8,7 @@
 #include "CollisionManager.h"
 #include "Enemy.h"
 #include "LoseScreen.h"
-#include "ResourcePath.hpp"
+#include "ResourcePath.h"
 #include "Ship.h"
 #include "SoundManager.h"
 #include "WinScreen.h"

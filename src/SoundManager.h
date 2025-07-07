@@ -9,7 +9,7 @@
 #ifndef __SpriteMove__SoundManager__
 #define __SpriteMove__SoundManager__
 
-#include "ResourcePath.hpp"
+#include "ResourcePath.h"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>

@@ -1,6 +1,6 @@
 // this is for Apple MacOS only
 #ifdef __APPLE__
-#include "ResourcePath.hpp"
+#include "ResourcePath.h"
 #import <Foundation/Foundation.h>
 
 std::string game::getResourcePath(const std::string &relativePath)

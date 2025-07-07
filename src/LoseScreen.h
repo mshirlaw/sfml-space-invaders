@@ -5,7 +5,7 @@
 #ifndef SpriteMove_LoseScreen_h
 #define SpriteMove_LoseScreen_h
 
-#include "ResourcePath.hpp"
+#include "ResourcePath.h"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>

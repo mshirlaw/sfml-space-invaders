@@ -5,7 +5,7 @@
 #ifndef SpriteMove_WinScreen_h
 #define SpriteMove_WinScreen_h
 
-#include "ResourcePath.hpp"
+#include "ResourcePath.h"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
