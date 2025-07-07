@@ -4,12 +4,12 @@ A simple space invaders clone that I have been working on while learning SFML. A
 
 ## Controls
 
-Arrow keys to move. Space to shoot. Requires **SFML 2.5** or higher.
+Arrow keys to move. Space to shoot. Requires **SFML 2.5.X** or higher.
 
 ## Requirements for Building
 
 - C++17 (or newer) compiler.
-- Pre-built [SFML 2.5.x](https://www.sfml-dev.org/download/sfml/2.6.1/) binaries.
+- Download Pre-built [SFML 2.5.x](https://www.sfml-dev.org/download/sfml/2.6.1/) binaries.
 - [CMake 3.20+](https://cmake.org/download/) or newer (GUI recommended)
 
 ### For Windows
@@ -17,7 +17,7 @@ Arrow keys to move. Space to shoot. Requires **SFML 2.5** or higher.
 - MS Visual Studio 2022 or newer (NOT vscode), with "**Desktop C++ Development**" bundle.
 - Please download "Visual C++ 64bit" edition of SFML; ignore others.
 - Move your unzipped `SFML-2.6.x` folder to its own home, example: `C:/SFML/SFML-2.6.1`.
-- Edit **line 24** in [CMakeLists.txt](CMakeLists.txt#L24), to set value `SFML_HOME` to folder path you moved SFML into (from previous step)
+- Edit **line 21** in [CMakeLists.txt](CMakeLists.txt#L21), to set value `SFML_HOME` to folder path you moved SFML into (from previous step).
 
 ### For macOS (x64 & arm64)
 

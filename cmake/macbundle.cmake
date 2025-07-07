@@ -16,7 +16,7 @@ foreach(FILE ${assets})
   endif()
 endforeach()
 
-# create macos bundle
+# create bundle
 add_executable(${CMAKE_PROJECT_NAME} MACOSX_BUNDLE
                ${GAME_SRC} "${CMAKE_SOURCE_DIR}/src/ResourcePath.mm" 
                ${application_icon} "${assets}") 
