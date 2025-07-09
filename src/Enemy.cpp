@@ -6,34 +6,32 @@
 #include <iostream>
 #include <stdexcept>
 
-using namespace std;
-
-//constructor sets ID number, loads sprite
-Enemy::Enemy(const int id,float sp)
+// constructor sets ID number, loads sprite
+Enemy::Enemy(const int id, float sp)
 {
-    //set alive
+    // set alive
     alive = true;
 
-    //set speed
+    // set speed
     speed = sp;
-    
+
     // Load an enemy texture
-    if(!texture.loadFromFile(resourcePath() + "alien_100.png"))
-        throw invalid_argument("Enemy not loaded!");
-    
-    //scale sprite and set texture so we know size
+    if (!texture.loadFromFile(game::getResourcePath("alien_100.png")))
+        throw std::invalid_argument("Enemy not loaded!");
+
+    // scale sprite and set texture so we know size
     sprite.setTexture(texture);
-    sprite.scale(sf::Vector2f(0.8,0.8));
+    sprite.scale(sf::Vector2f(0.8, 0.8));
 }
 
-sf::Sprite & Enemy::getSprite()
+sf::Sprite &Enemy::getSprite()
 {
     return sprite;
 }
 
 void Enemy::setLocation(float xpos, float ypos)
 {
-    sprite.setPosition(xpos,ypos);
+    sprite.setPosition(xpos, ypos);
 }
 
 void Enemy::kill()
@@ -48,9 +46,9 @@ bool Enemy::isAlive()
 
 void Enemy::draw(sf::RenderWindow &win)
 {
-    //set texture
+    // set texture
     sprite.setTexture(texture);
-    //draw
+    // draw
     win.draw(sprite);
 }
 

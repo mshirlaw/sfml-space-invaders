@@ -1,0 +1,20 @@
+BasedOnStyle: Microsoft
+AccessModifierOffset: -2
+AlignAfterOpenBracket: Align
+AlignArrayOfStructures: None
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+Standard: Latest
+StatementAttributeLikeMacros:
+  - Q_EMIT
+StatementMacros:
+  - Q_UNUSED
+  - QT_REQUIRE_VERSION
+TabWidth: 4
+UseTab: Never
+WhitespaceSensitiveMacros:
+  - BOOST_PP_STRINGIZE
+  - CF_SWIFT_NAME
+  - NS_SWIFT_NAME
+  - PP_STRINGIZE
+  - STRINGIZE

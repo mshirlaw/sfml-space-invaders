@@ -1,3 +1,68 @@
-# OS generated files #
-######################
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+
+# Visual Studio
+.vs/
+.vscode/
+
+# Clion
+*.iml
+.idea/
+.cache/
+.fleet/
+/cmake-build-*/
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+*.zip
+*.rar
+/*.zip
+xcuserdata/
+
+# MacOS specific
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+*.xcodeproj/*
 .DS_Store

@@ -5,18 +5,18 @@
 #ifndef SpriteMove_CollisionManager_h
 #define SpriteMove_CollisionManager_h
 
-#include "Ship.h"
-#include "Enemy.h"
 #include "Bullet.h"
+#include "Enemy.h"
+#include "Ship.h"
 #include <iostream>
 
 class CollisionManager
 {
-public:
+  public:
     static bool collidesWith(Ship &, Enemy &);
     static bool collidesWith(Bullet &, Enemy &);
 
-private:
+  private:
 };
 
 #endif
