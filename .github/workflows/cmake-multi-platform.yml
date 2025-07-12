@@ -59,7 +59,7 @@ jobs:
       if:  matrix.os == 'windows-latest'
       shell: cmd
       run: |
-        mkdir "C:/SFML" && curl -fsSL "https://www.sfml-dev.org/files/${{ env.SFML_WIN_ZIP }}" -o "C:/SFML/${{ env.SFML_WIN_ZIP }}"
+        mkdir "C:/SFML" && curl -fsSL "https://github.com/SFML/SFML/releases/download/2.6.1/${{ env.SFML_WIN_ZIP }}" -o "C:/SFML/${{ env.SFML_WIN_ZIP }}"
         tar -xvf "C:/SFML/${{ env.SFML_WIN_ZIP }}" -C "C:/SFML/"
 
     - name: Configure CMake
