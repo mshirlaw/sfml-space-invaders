@@ -10,8 +10,8 @@ on:
 
 env:
   # global build variables (this SFML_DIR is required only for Windows, Unix is automatic)
-  SFML_DIR: "C:/SFML/SFML-2.6.2"
-  SFML_WIN_ZIP: SFML-2.6.2-windows-vc17-64-bit.zip
+  SFML_DIR: "C:/SFML/SFML-2.6.1"
+  SFML_WIN_ZIP: SFML-2.6.1-windows-vc17-64-bit.zip
   BUILD_DIR: ${{ github.workspace }}/build
 
 jobs:
@@ -59,7 +59,7 @@ jobs:
       if:  matrix.os == 'windows-latest'
       shell: cmd
       run: |
-        mkdir "C:/SFML" && curl -fsSL "https://www.sfml-dev.org/files/${{ env.SFML_WIN_ZIP }}" -o "C:/SFML/${{ env.SFML_WIN_ZIP }}"
+        mkdir "C:/SFML" && curl -fsSL "https://github.com/SFML/SFML/releases/download/2.6.1/${{ env.SFML_WIN_ZIP }}" -o "C:/SFML/${{ env.SFML_WIN_ZIP }}"
         tar -xvf "C:/SFML/${{ env.SFML_WIN_ZIP }}" -C "C:/SFML/"
 
     - name: Configure CMake
@@ -82,3 +82,22 @@ jobs:
       # Execute tests defined by the CMake configuration. Note that --build-config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: ctest --build-config ${{ matrix.build_type }}
+    
+    - name: Upload a Build Artifact - Windows
+      uses: actions/upload-artifact@v4
+      if:  matrix.os == 'windows-latest'
+      with:
+        name: space-invaders-x64-windows
+        path: |
+          ${{github.workspace}}/build/bin/Release/SpaceInvaders.exe
+          ${{github.workspace}}/build/bin/Release/res/
+          ${{github.workspace}}/build/bin/Release/openal32.dll
+    
+    - name: Upload a Build Artifact - Ubuntu
+      uses: actions/upload-artifact@v4
+      if:  matrix.os == 'ubuntu-latest'
+      with:
+        name: space-invaders-x64-debian
+        path: |
+          ${{github.workspace}}/build/bin/SpaceInvaders
+          ${{github.workspace}}/build/bin/res/

@@ -21,7 +21,7 @@ Enemy::Enemy(const int id, float sp)
 
     // scale sprite and set texture so we know size
     sprite.setTexture(texture);
-    sprite.scale(sf::Vector2f(0.8, 0.8));
+    sprite.scale(sf::Vector2f(0.8f, 0.8f));
 }
 
 sf::Sprite &Enemy::getSprite()

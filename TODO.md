@@ -1,3 +1,5 @@
+## TODO List
+
 - [ ] Add sound
 - [ ] Add bombs to avoid
 - [ ] Add some background sky

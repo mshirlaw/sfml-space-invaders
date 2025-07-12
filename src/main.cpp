@@ -21,7 +21,7 @@
 
 constexpr unsigned WIDTH = 800;
 constexpr unsigned HEIGHT = 600;
-constexpr unsigned NUMBER_OF_ALIENS = 7;
+constexpr auto NUMBER_OF_ALIENS = 7;
 constexpr auto ICON_PATH = "win-icon.ico";
 
 int main()
