@@ -1,5 +1,7 @@
 # Space Invaders Clone
 
+[![CMake on multiple platforms](https://github.com/mshirlaw/sfml-space-invaders/actions/workflows/cmake-multi-platform.yml/badge.svg?branch=master)](https://github.com/mshirlaw/sfml-space-invaders/actions/workflows/cmake-multi-platform.yml)
+
 A simple space invaders clone that I have been working on while learning SFML. At the moment there are only 7 enemies and a single player. Enemies advance down the screen and the player can shoot at enemies. If the player is hit by an enemy the game ends. If the player kills all enemies, the game ends and if an enemy reaches the bottom of the screen the game also ends.
 
 ## Controls
