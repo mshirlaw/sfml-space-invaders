@@ -50,6 +50,8 @@ Arrow keys to move. Space to shoot. Requires **SFML 2.6.X** or higher.
 
 Please see [BUILDING.md](BUILDING.md) for detailed instructions for each platform.
 
+You can download latest prebuilt release from **Actions** tab above (only on Github web).
+
 ## Author
 
 &copy; 2013, mshirlaw

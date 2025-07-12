@@ -11,8 +11,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# On macOS using Frameworks, NOT static (dylib)
-if(NOT APPLE)
+# On macOS and Linux, use dynamic linking.
+if(MSVC)
   set(SFML_STATIC_LIBRARIES TRUE)
 endif()
 
