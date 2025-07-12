@@ -10,8 +10,8 @@ on:
 
 env:
   # global build variables (this SFML_DIR is required only for Windows, Unix is automatic)
-  SFML_DIR: "C:/SFML/SFML-2.6.2"
-  SFML_WIN_ZIP: SFML-2.6.2-windows-vc17-64-bit.zip
+  SFML_DIR: "C:/SFML/SFML-2.6.1"
+  SFML_WIN_ZIP: SFML-2.6.1-windows-vc17-64-bit.zip
   BUILD_DIR: ${{ github.workspace }}/build
 
 jobs:

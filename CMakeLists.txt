@@ -24,7 +24,7 @@ set(SFML_DIR ${SFML_HOME}/lib/cmake/SFML)
 
 # Collect all sources
 file(GLOB_RECURSE GAME_SRC "src/*.cpp" "src/*.h")
-find_package(SFML 2.5 REQUIRED COMPONENTS "graphics" "window" "audio" "system")
+find_package(SFML 2.6 REQUIRED COMPONENTS "graphics" "window" "audio" "system")
 
 
 if(WIN32)
