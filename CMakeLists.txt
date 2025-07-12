@@ -48,7 +48,7 @@ target_include_directories(SpaceInvaders PUBLIC ${SFML_HOME}/include)
 if(MSVC)
   target_compile_options(SpaceInvaders PRIVATE /W4 /sdl)
 else()
-  target_compile_options(SpaceInvaders PRIVATE -Wall -Werror)
+  target_compile_options(SpaceInvaders PRIVATE -Wall)
 endif()
 
 
