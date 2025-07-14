@@ -16,7 +16,7 @@ Bullet::Bullet(const int id, float speed)
         throw std::invalid_argument("Bullet not loaded!");
 
     // scale
-    sprite.scale(sf::Vector2f(0.3, 0.3));
+    sprite.scale(sf::Vector2f(0.3f, 0.3f));
 }
 
 sf::Sprite &Bullet::getSprite()

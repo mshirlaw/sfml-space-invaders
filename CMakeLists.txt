@@ -11,8 +11,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# On macOS using Frameworks, NOT static (dylib)
-if(NOT APPLE)
+# On macOS and Linux, use dynamic linking.
+if(MSVC)
   set(SFML_STATIC_LIBRARIES TRUE)
 endif()
 
@@ -24,7 +24,7 @@ set(SFML_DIR ${SFML_HOME}/lib/cmake/SFML)
 
 # Collect all sources
 file(GLOB_RECURSE GAME_SRC "src/*.cpp" "src/*.h")
-find_package(SFML 2.5 REQUIRED COMPONENTS "graphics" "window" "audio" "system")
+find_package(SFML 2.6 REQUIRED COMPONENTS "graphics" "audio" "window" "system")
 
 
 if(WIN32)
@@ -39,7 +39,7 @@ else()
 endif()
 
 # link all required libraries
-target_link_libraries(SpaceInvaders PRIVATE sfml-graphics sfml-window sfml-audio sfml-system)
+target_link_libraries(SpaceInvaders PRIVATE sfml-graphics sfml-audio sfml-window sfml-system)
 
 # include SFML headers
 target_include_directories(SpaceInvaders PUBLIC ${SFML_HOME}/include)
@@ -48,7 +48,7 @@ target_include_directories(SpaceInvaders PUBLIC ${SFML_HOME}/include)
 if(MSVC)
   target_compile_options(SpaceInvaders PRIVATE /W4 /sdl)
 else()
-  target_compile_options(SpaceInvaders PRIVATE -Wall -Werror=constant-conversion -Werror=fortify-source)
+  target_compile_options(SpaceInvaders PRIVATE -Wall)
 endif()
 
 

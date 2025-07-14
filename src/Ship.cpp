@@ -17,7 +17,7 @@ Ship::Ship(const int id, float speed)
 
     // create sprite and set texture so we know its size
     sprite.setTexture(texture);
-    sprite.scale(sf::Vector2f(0.4, 0.4));
+    sprite.scale(sf::Vector2f(0.4f, 0.4f));
 }
 
 void Ship::setLocation(float xpos, float ypos)
